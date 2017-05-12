@@ -10,14 +10,15 @@ namespace ASP_WEB_BWA.Controllers
     {
         public ActionResult Index()
         {
+            
             return View();
         }
 
+        //[Authorize]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
-            return View();
+            return Content("lol");
         }
 
         public ActionResult Contact()
