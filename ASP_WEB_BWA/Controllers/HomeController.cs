@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ASP_WEB_BWA.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace ASP_WEB_BWA.Controllers
 {
     public class HomeController : Controller
     {
+        DbMain _db = new DbMain();
+
         public ActionResult Index()
         {
-            
-            return View();
+            var model = _db.Tst.ToList();
+            return View(model);
         }
 
         //[Authorize]
@@ -27,5 +30,14 @@ namespace ASP_WEB_BWA.Controllers
 
             return View();
         }
+
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (_db != null)
+        //    {
+        //        _db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }
