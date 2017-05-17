@@ -1,0 +1,14 @@
+﻿@model ASP_WEB_BWA.Models.Test
+
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Reviews for @Model.Name</h2>
+
+@Html.Partial("_ReviewName", @Model.Testz) 
+<p>
+    @Html.ActionLink("Create New", "Create", new { resID = Model.Id })
+</p>

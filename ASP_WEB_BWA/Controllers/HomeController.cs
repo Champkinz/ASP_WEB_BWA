@@ -13,8 +13,10 @@ namespace ASP_WEB_BWA.Controllers
 
         public ActionResult Index()
         {
-            var model = _db.Tst.ToList();
-            return View(model);
+            //var model = _db.Tst.Where(r => searchterm == null || r.Name.StartsWith(searchterm))
+            //    ; 
+            var Model = _db.Tst.ToList();
+            return View(Model);
         }
 
         //[Authorize]

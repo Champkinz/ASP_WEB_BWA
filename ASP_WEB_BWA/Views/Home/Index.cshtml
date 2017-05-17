@@ -4,15 +4,17 @@
     ViewBag.Title = "Home Page";
 }
 
+@*<form method="get">
+    <input type="search" name="searchterm"/>
+    <input type="submit" value="Search here"/>
+ </form>*@
 
 @foreach (var item in Model)
 {
     <div>
         <h4>@item.Name</h4>
-        <div>@item.City, @item.Country</div>
         <hr/>
     </div>
-
 }
 
 
