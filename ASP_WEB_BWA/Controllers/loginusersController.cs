@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using ASP_WEB_BWA.Models;
 
+
+
 namespace ASP_WEB_BWA.Controllers
 {
     public class loginusersController : Controller
@@ -20,12 +22,11 @@ namespace ASP_WEB_BWA.Controllers
             return View(db.loginuser.ToList());
         }
 
-        public ActionResult loginindex(loginuser currentdetails)
+        public ActionResult loginindex(Log currentdetails)
         {
             if (ModelState.IsValid)
             {
-                
-                    var v = db.loginuser.Where(a => a.username == currentdetails.username && a.password == currentdetails.password).FirstOrDefault();
+                    var v = db.loginuser.Where(a => a.username == currentdetails.Username && a.password == currentdetails.Password).FirstOrDefault();
                     Session["User"] = v;
 
                     if (v != null)
@@ -38,7 +39,6 @@ namespace ASP_WEB_BWA.Controllers
                         {
                             return RedirectToAction("Home", "About");
                         }
-
                     }
                     else
                     {

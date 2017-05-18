@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ASP_WEB_BWA.Models.Product>
+
+@{
+    ViewBag.Title = "CustomerPageView";
+}
+
+<h2>CustomerPageView</h2>
+<div class="container">
+    <div class="row">
+        @foreach (var Product in Model)
+        {
+            var productimglink = Convert.ToBase64String(Product.productImage);
+            var productimgfrmt = string.Format("data:image/jpg;base64,{0}", productimglink);
+            <div style="margin-top:10px;" class="col-md-3">
+                <a href="#">
+                    <img src="@productimgfrmt" class="img-responsive" />
+                </a>
+                <h6 style="font-style:normal"> @Product.ProductName</h6> <br />
+                <a href="#"><div class="btn btn-success btn-block">smth</div></a>
+            </div>
+        }
+    </div>
+</div>

@@ -43,6 +43,10 @@ namespace ASP_WEB_BWA.Controllers
             return View();
         }
 
+        public ActionResult CustomerPageView()
+        {
+            return View(db.product.ToList());
+        }
         // POST: Products/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
