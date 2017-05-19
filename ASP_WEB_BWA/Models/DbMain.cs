@@ -16,5 +16,7 @@ namespace ASP_WEB_BWA.Models
         public DbSet<loginuser> loginuser { get; set; }
 
         public DbSet<Product> product { get; set; }
+
+        public DbSet<Order_info> OrderDts { get; set; }
     }
 }

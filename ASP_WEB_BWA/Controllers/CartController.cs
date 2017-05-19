@@ -14,12 +14,19 @@ namespace ASP_WEB_BWA.Controllers
         {
             return View();
         }
+
+        public ActionResult Checkout()
+        {
+            return View("Checkout"); 
+        }
+
+       
         private int isExisting(int id)
         {
             List<Cart> cart = (List<Cart>)Session["Cart"];
 
             for (int i = 0; i < cart.Count; i++)
-                if (cart[i].Product.ProductID == id)
+                if (cart[i].Pro.ProductID == id)
                     return i;
             return -1;
 
@@ -57,7 +64,7 @@ namespace ASP_WEB_BWA.Controllers
 
                 Session["Cart"] = cart;
             }
-            return View("cart");
+            return View("Cart");
         }
     }
 }

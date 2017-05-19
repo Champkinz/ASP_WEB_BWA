@@ -8,19 +8,19 @@ namespace ASP_WEB_BWA.Controllers
 {
     public class Cart
     {
-        private Product product = new Product();
+        private Product pro = new Product();
         private int quantity;
 
-        public Product Product
+        public Product Pro
         {
             get
             {
-                return product;
+                return pro;
             }
 
             set
             {
-                product = value;
+                pro = value;
             }
         }
 
@@ -44,11 +44,11 @@ namespace ASP_WEB_BWA.Controllers
 
         public Cart(Product Product,int qty)
         {
-            this.Product = Product;
+            this.pro = Product;
             this.Quantity = qty;
         }
 
-        public Product 
+        
 
     }
 }

@@ -1,0 +1,34 @@
+﻿@model ASP_WEB_BWA.Models.Product
+
+@using ASP_WEB_BWA.Controllers
+@{
+    ViewBag.Title = "Cart";
+}
+
+<table cellpadding="2" cellspacing="2" border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+    </tr>
+    @foreach (Cart item in (List<Cart>)Session["Cart"])
+    {
+        <tr>
+            <td>@Html.ActionLink("Delete", "DeleteFromCart", "Cart", new { id = item.Pro.ProductID }, null)</td>
+            <td>@item.Pro.ProductID</td>
+            <td>@item.Pro.ProductName</td>
+            <td>@item.Pro.sellingPrice</td>
+            <td>@item.Quantity</td>
+            <td>@(item.Pro.sellingPrice * item.Quantity)</td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+@Html.ActionLink(" Continue Shopping ", "CustomerPageView", "Products") |
+@Html.ActionLink("Checkout", "Checkout", "Order_info")
+
+<h2>View</h2>
+

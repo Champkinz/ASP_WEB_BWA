@@ -13,8 +13,6 @@ namespace ASP_WEB_BWA.Models
         public int userid { get; set; }
         [Required]
         public string username { get; set; }
-        [Required]
-        [Display(Name = "Password")]
         public string password { get; set; }
         public string type { get; set; }
         [Required]

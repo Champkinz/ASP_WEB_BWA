@@ -2,14 +2,21 @@
 
 @{
     ViewBag.Title = "Login";
+    if (!Request.QueryString["lang"].IsEmpty())
+    {
+        Culture = UICulture = Request.QueryString["lang"];
+    }
 }
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>loginindex</title>
+    <title></title>
 </head>
 <body>
+    <a href="@Url.Action("Change","loginusers",new { lang = "jp" })">Japanese</a>
+    <a href="@Url.Action("Change","loginusers",new { lang = "en" })">English</a>
+    <h1>@Resources.Content.Login</h1>
     <div class="container">
         <div class="row">
             <div style="border-radius:20px; padding-left:4%;padding-top:8%;padding-bottom:8%; margin-top:7%;background-color:#ecf0f1;" class="col-md-5 col-md-offset-3">
@@ -36,7 +43,7 @@
                         </div>
                         <div class="form-group">
                                 <div class="col-md-8 col-md-offset-2">
-                                    <input type="submit" value="Login" class="btn btn-primary btn-block" />
+                                    <input type="submit" value="@Resources.Content.Login" class="btn btn-primary btn-block" />
                                 </div>
                         </div>
                     </div>

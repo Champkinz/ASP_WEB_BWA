@@ -8,66 +8,19 @@ using System.Web;
 using System.Web.Mvc;
 using ASP_WEB_BWA.Models;
 
-
-
 namespace ASP_WEB_BWA.Controllers
 {
-    public class loginusersController : Controller
+    public class loginusers1Controller : Controller
     {
         private DbMain db = new DbMain();
 
-        // GET: loginusers
+        // GET: loginusers1
         public ActionResult Index()
         {
             return View(db.loginuser.ToList());
         }
 
-        public ActionResult Change(string lang)
-        {
-            return View("loginindex");
-        }
-
-        public ActionResult logoff()
-        {
-            Session.Clear();
-            return View("loginindex");
-        }
-        public ActionResult Editpass(loginuser ur)
-        {
-             //ur.userid = ((loginuser)Session["User"]).userid;
-            return RedirectToAction("Edit", "loginusers", new { id= ((loginuser)Session["User"]).userid});
-        }
-        public ActionResult loginindex(Log currentdetails)
-        {
-            if (ModelState.IsValid)
-            {
-                    var v = db.loginuser.Where(a => a.username == currentdetails.Username && a.password == currentdetails.Password).FirstOrDefault();
-                    Session["User"] = v;
-
-                    if (v != null)
-                    {
-                        if (v.type == "Admin")
-                        {
-                        return RedirectToAction("AdminMain", "loginusers1");
-                        }
-                        else
-                        {
-                         return RedirectToAction("CustomerPageView", "Products");
-                        }
-                    }
-                    else
-                    {
-                        ViewBag.LoginErrorMessage = "Wrong Username or password";
-                        return View("loginindex", currentdetails);
-                    }
-
-            }
-            return View(currentdetails);
-        }
-
-
-
-        // GET: loginusers/Details/5
+        // GET: loginusers1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -82,18 +35,24 @@ namespace ASP_WEB_BWA.Controllers
             return View(loginuser);
         }
 
-        // GET: loginusers/Create
+        // GET: loginusers1/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: loginusers/Create
+        public ActionResult AdminMain()
+        {
+            return View();
+        }
+
+
+        // POST: loginusers1/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userid,username,firstname,password,type,lastname,telephone,address,sex")] loginuser loginuser)
+        public ActionResult Create([Bind(Include = "userid,username,password,type,firstname,lastname,telephone,address,sex")] loginuser loginuser)
         {
             if (ModelState.IsValid)
             {
@@ -105,7 +64,7 @@ namespace ASP_WEB_BWA.Controllers
             return View(loginuser);
         }
 
-        // GET: loginusers/Edit/5
+        // GET: loginusers1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -120,25 +79,23 @@ namespace ASP_WEB_BWA.Controllers
             return View(loginuser);
         }
 
-        // POST: loginusers/Edit/5
+        // POST: loginusers1/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userid,username,password,firstname,lastname,telephone,address,sex")] loginuser loginuser)
+        public ActionResult Edit([Bind(Include = "userid,username,password,type,firstname,lastname,telephone,address,sex")] loginuser loginuser)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(loginuser).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Edit");
+                return RedirectToAction("Index");
             }
             return View(loginuser);
         }
 
-
-
-        // GET: loginusers/Delete/5
+        // GET: loginusers1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -153,7 +110,7 @@ namespace ASP_WEB_BWA.Controllers
             return View(loginuser);
         }
 
-        // POST: loginusers/Delete/5
+        // POST: loginusers1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

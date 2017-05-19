@@ -1,0 +1,22 @@
+﻿@model IEnumerable<ASP_WEB_BWA.Models.Order_info>
+
+@{
+    ViewBag.Title = "vieworders";
+}
+
+<h2>vieworders</h2>
+
+<div>
+    <h4>Order_info</h4>
+    <hr />
+
+    @foreach (var jelo in Model)
+    {
+        <h1>@jelo.Username</h1>
+        <h1>@jelo.Expiry_Date</h1>
+        <br/>
+    }
+
+  
+</div>
+

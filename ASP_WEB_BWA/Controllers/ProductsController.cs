@@ -21,6 +21,8 @@ namespace ASP_WEB_BWA.Controllers
             return View(await db.product.ToListAsync());
         }
 
+       
+
         // GET: Products/Details/5
         public async Task<ActionResult> Details(int? id)
         {

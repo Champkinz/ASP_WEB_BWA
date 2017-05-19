@@ -200,6 +200,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\Content.en.designer.cs">
+      <DependentUpon>Content.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Content.jp.designer.cs">
+      <DependentUpon>Content.jp.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Content.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Content.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -209,8 +224,10 @@
     <Compile Include="Controllers\Cart.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\loginusers1Controller.cs" />
     <Compile Include="Controllers\loginusersController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\Order_infoController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\RestaurantController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
@@ -229,6 +246,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\loginuser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Order_info.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Test.cs" />
     <Compile Include="Models\TestRv.cs" />
@@ -257,6 +275,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Images\water-bottle.jpg" />
     <Content Include="Scripts\ai.1.0.9-build01279.js" />
     <Content Include="Scripts\ai.1.0.9-build01279.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -331,10 +350,33 @@
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\CustomerPageView.cshtml" />
+    <Content Include="Views\Cart\Cart.cshtml" />
+    <Content Include="Views\Order_info\Create.cshtml" />
+    <Content Include="Views\Order_info\Delete.cshtml" />
+    <Content Include="Views\Order_info\Details.cshtml" />
+    <Content Include="Views\Order_info\Edit.cshtml" />
+    <Content Include="Views\Order_info\Index.cshtml" />
+    <Content Include="Views\Order_info\Checkout.cshtml" />
+    <Content Include="Views\Order_info\vieworders.cshtml" />
+    <Content Include="Views\loginusers\_Layout.cshtml" />
+    <Content Include="Views\loginusers\_ViewStart.cshtml" />
+    <Content Include="Views\Products\_LoginPartial.cshtml" />
+    <Content Include="Views\Products\_Layout.cshtml" />
+    <Content Include="Views\Products\_ViewStart.cshtml" />
+    <Content Include="Views\loginusers\_LoginPartial.cshtml" />
+    <Content Include="Views\loginusers1\Create.cshtml" />
+    <Content Include="Views\loginusers1\Delete.cshtml" />
+    <Content Include="Views\loginusers1\Details.cshtml" />
+    <Content Include="Views\loginusers1\Edit.cshtml" />
+    <Content Include="Views\loginusers1\Index.cshtml" />
+    <Content Include="Views\loginusers1\AdminMain.cshtml" />
+    <Content Include="Views\loginusers1\_Layout.cshtml" />
+    <Content Include="Views\loginusers1\_LoginPartial.cshtml" />
+    <Content Include="Views\loginusers1\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Cart\" />
+    <Folder Include="Views\ShopCart\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -343,6 +385,18 @@
     <Content Include="Scripts\jquery-3.1.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_GlobalResources\Content.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Content.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Content.jp.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Content.jp.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Content.en.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Content.en.designer.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="Migrations\201705121419353_InitialCreate.resx">
       <DependentUpon>201705121419353_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>

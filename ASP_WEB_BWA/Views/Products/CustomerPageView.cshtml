@@ -4,7 +4,7 @@
     ViewBag.Title = "CustomerPageView";
 }
 
-<h2>CustomerPageView</h2>
+<h2>Products</h2>
 <div class="container">
     <div class="row">
         @foreach (var Product in Model)
@@ -15,8 +15,11 @@
                 <a href="#">
                     <img src="@productimgfrmt" class="img-responsive" />
                 </a>
-                <h6 style="font-style:normal"> @Product.ProductName</h6> <br />
-                <a href="#"><div class="btn btn-success btn-block">smth</div></a>
+                <h6 style="font-style: inherit;
+    font-size: 21px;
+    text-align: center;
+    font-weight: 900;"> @Product.ProductName</h6> <br />
+                <a href="@Url.Action("OrderNow","Cart", new  { id = Product.ProductID})"><div class="btn btn-success btn-block">Add To Cart</div></a>
             </div>
         }
     </div>

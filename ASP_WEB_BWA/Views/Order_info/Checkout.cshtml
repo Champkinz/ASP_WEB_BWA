@@ -1,0 +1,65 @@
+﻿@model ASP_WEB_BWA.Models.Order_info
+@using ASP_WEB_BWA.Models;
+
+@{
+    ViewBag.Title = "Checkout";
+}
+<h2>CheckOut</h2>
+@using ASP_WEB_BWA.Controllers
+@{
+    var user = (loginuser)Session["User"];
+}
+@foreach (Cart item in (List<Cart>)Session["cart"])
+{
+    @(item.Quantity * item.Pro.ItemPrice)<br />
+    @user.firstname<br />
+    @user.address<br />
+}
+@using (Html.BeginForm("CheckOut", "Order_info", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>Order_Details</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CardType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                Delivery @Html.RadioButton("CardType", "Delivery")
+                Pickup @Html.RadioButton("CardType", "Pickup")
+                @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.CardType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CreditCardNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreditCardNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreditCardNo, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CVC, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CVC, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CVC, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Expiry_Date, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Expiry_Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Expiry_Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-block btn-primary" value="Pay"  />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to Shopping", "CustomerPageView", "Products")
+</div>
+
