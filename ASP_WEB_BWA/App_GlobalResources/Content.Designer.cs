@@ -68,5 +68,23 @@ namespace Resources {
                 return ResourceManager.GetString("Login", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
+        /// </summary>
+        internal static string Username {
+            get {
+                return ResourceManager.GetString("Username", resourceCulture);
+            }
+        }
     }
 }

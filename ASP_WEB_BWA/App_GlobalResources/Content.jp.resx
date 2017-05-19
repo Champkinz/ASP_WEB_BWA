@@ -120,4 +120,13 @@
   <data name="Login" xml:space="preserve">
     <value>ログイン</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
+  <data name="s" xml:space="preserve">
+    <value>s</value>
+  </data>
+  <data name="Username" xml:space="preserve">
+    <value>ユーザー名</value>
+  </data>
 </root>
